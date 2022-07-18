@@ -16,6 +16,7 @@ public class EscuelasController {
     @Autowired
     IEscuelaService escuelaService;
 
+
     @GetMapping("/all")
     public List<Escuela> getEscuelas(@RequestHeader("token") Integer token) {
         if (token != null){
