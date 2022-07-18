@@ -17,8 +17,11 @@ public class EscuelasController {
     IEscuelaService escuelaService;
 
     @GetMapping("/all")
-    public List<Escuela> getEscuelas() {
-        return escuelaService.getEscuelas();
+    public List<Escuela> getEscuelas(@RequestHeader("token") Integer token) {
+        if (token != null){
+            return escuelaService.getEscuelas();
+        }
+        return null;
     }
 
     @PostMapping("/new")
@@ -39,8 +42,8 @@ public class EscuelasController {
         return "Escuela eliminada";
     }
 
-    @GetMapping("/get/{id}")
-    public Escuela getEscuelaById(@PathVariable("id") int idEscuela){
+    @GetMapping("/get")
+    public Escuela getEscuelaById(@RequestParam(name = "idEscuela") Integer idEscuela){
         return escuelaService.searchEscuelaById(idEscuela);
     }
 
