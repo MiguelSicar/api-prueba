@@ -28,7 +28,6 @@ public class StudentsController {
     public Student newStudent(@RequestBody Student student,@PathVariable("idEscuela") int idEscuela){
         student.setEscuela(escuelaService.searchEscuelaById(idEscuela));
         studentsService.newStudent(student);
-
         return student;
     }
 

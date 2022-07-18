@@ -10,5 +10,4 @@ public interface IEscuelaService {
     void removeEscuela(Integer idEscuela);
     Escuela searchEscuelaById(Integer idEscuela);
     List<Escuela> getEscuelas();
-
 }
