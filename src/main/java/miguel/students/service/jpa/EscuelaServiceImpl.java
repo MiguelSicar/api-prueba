@@ -8,6 +8,7 @@ import miguel.students.service.IEscuelaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +46,10 @@ public class EscuelaServiceImpl implements IEscuelaService {
         return escuelaRepository.findAll();
     }
 
+    @Override
+    public List<Student> getStudentsByEscuela(int idEscuela) {
+        return escuelaRepository.findById(idEscuela).get().getStudentsOfEscuela();
+    }
 
 
 }

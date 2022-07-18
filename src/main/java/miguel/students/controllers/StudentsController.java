@@ -26,6 +26,7 @@ public class StudentsController {
     @PostMapping("/new")
     public Student newStudent(@RequestBody Student student,@RequestParam (name = "idEscuela") int idEscuela ){
         student.setEscuela(escuelaService.searchEscuelaById(idEscuela));
+        //escuelaService.searchEscuelaById(idEscuela).setStudentsOfEscuela(student);
         studentsService.newStudent(student);
         return student;
     }

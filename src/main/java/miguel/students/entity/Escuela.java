@@ -12,6 +12,8 @@ public class Escuela {
     private Integer id;
     private String nombre;
 
+    @OneToMany
+    private List<Student> studentsOfEscuela;
 
     public Integer getId() {
         return id;
@@ -29,6 +31,13 @@ public class Escuela {
         this.nombre = nombre;
     }
 
+    public List<Student> getStudentsOfEscuela() {
+        return studentsOfEscuela;
+    }
+
+    public void setStudentsOfEscuela(Student student) {
+        this.studentsOfEscuela.add(student);
+    }
 
     @Override
     public String toString() {
