@@ -1,5 +1,6 @@
 package miguel.students.controllers;
 
+import miguel.students.entity.Escuela;
 import miguel.students.entity.Student;
 import miguel.students.service.IEscuelaService;
 import miguel.students.service.IStudentsService;
@@ -23,11 +24,14 @@ public class StudentsController {
         return studentsService.getStudents();
     }
 
-    @PostMapping("/new")
-    public Student newStudent(@RequestBody Student student,@RequestParam (name = "idEscuela") int idEscuela ){
+    @PostMapping("/new/{idEscuela}")
+    public Student newStudent(@RequestBody Student student,@PathVariable("idEscuela") int idEscuela){
         student.setEscuela(escuelaService.searchEscuelaById(idEscuela));
-        //escuelaService.searchEscuelaById(idEscuela).setStudentsOfEscuela(student);
         studentsService.newStudent(student);
+        Escuela escuela = escuelaService.searchEscuelaById(idEscuela);
+        escuela.setStudentsOfEscuela(student);
+        //escuelaService.searchEscuelaById(idEscuela).setStudentsOfEscuela(student);
+
         return student;
     }
 
