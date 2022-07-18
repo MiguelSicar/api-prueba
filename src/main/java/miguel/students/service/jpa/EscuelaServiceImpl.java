@@ -46,10 +46,7 @@ public class EscuelaServiceImpl implements IEscuelaService {
         return escuelaRepository.findAll();
     }
 
-    @Override
-    public List<Student> getStudentsByEscuela(int idEscuela) {
-        return escuelaRepository.findById(idEscuela).get().getStudentsOfEscuela();
-    }
+
 
 
 }

@@ -49,9 +49,5 @@ public class EscuelasController {
         return escuelaService.searchEscuelaById(idEscuela);
     }
 
-    @GetMapping("/getStudents")
-    public List<Student> getStudentsByEscuela(@RequestParam(name = "idEscuela")Integer idEscuela){
-        return escuelaService.getStudentsByEscuela(idEscuela);
-    }
 
 }
