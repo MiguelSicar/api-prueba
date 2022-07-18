@@ -20,11 +20,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     //implementation('org.springdoc:springdoc-openapi-core:1.1.49')
-
-
     // https://mvnrepository.com/artifact/org.webjars/swagger-ui
     //implementation group: 'org.webjars', name: 'swagger-ui', version: '4.11.1'
-
     //implementation 'org.springdoc:springdoc-openapi-ui:1.5.3'
 
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
