@@ -24,6 +24,7 @@ public class EscuelasController {
         return null;
     }
 
+
     @PostMapping("/new")
     public Escuela newEscuela(@RequestBody Escuela escuela){
         escuelaService.newEscuela(escuela);
