@@ -1,6 +1,8 @@
 package miguel.students.service.jpa;
 
+import miguel.students.entity.Escuela;
 import miguel.students.entity.Student;
+import miguel.students.repository.EscuelaRepository;
 import miguel.students.repository.StudentsRepository;
 import miguel.students.service.IStudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class StudentsServiceImpl implements IStudentsService {
 
     @Autowired
     StudentsRepository studentsRepository;
+
+    @Autowired
+    EscuelaRepository escuelaRepository;
 
     @Override
     public List<Student> getStudents() {
@@ -35,6 +40,16 @@ public class StudentsServiceImpl implements IStudentsService {
         Optional<Student> optional= studentsRepository.findById(idStudent);
         if (optional.isPresent()){
             return optional.get();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Student> getStudentsByEscuela(Integer idEscuela) {
+        Optional<Escuela> escuela = escuelaRepository.findById(idEscuela);
+        if (escuela.isPresent()){
+            List<Student> students = studentsRepository.findAllByEscuela(escuela.get());
+            return students;
         }
         return null;
     }

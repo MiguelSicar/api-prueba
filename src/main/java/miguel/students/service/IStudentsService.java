@@ -9,4 +9,6 @@ public interface IStudentsService {
     void newStudent(Student student);
     void removeStudent(Integer idStudent);
     Student searchStudentById(Integer idStudent);
+
+    List<Student> getStudentsByEscuela(Integer idEscuela);
 }
